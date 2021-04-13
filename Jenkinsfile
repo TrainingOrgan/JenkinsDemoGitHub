@@ -32,6 +32,7 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
+				sh 'sudo chmod +x ./JenkinsDemoGitHub/HelloWorld/gradlew'
 				withGradle(){
 					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 				}
