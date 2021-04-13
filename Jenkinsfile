@@ -23,6 +23,7 @@ pipeline {
 					try {
 						sh "pwd"
 						sh "rm -r JenkinsDemoGitHub"
+						echo 'Directory found, and deleted'
 					} catch (all) {
 						echo 'No directory exists'
 					}
@@ -38,6 +39,7 @@ pipeline {
 				
 				sh "pwd"
 				sh './gradlew build'
+				sh "pwd"
 			}
 		}
         stage('Destroy Old Server') {
