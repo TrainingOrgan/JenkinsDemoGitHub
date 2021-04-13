@@ -34,6 +34,7 @@ pipeline {
 				echo 'Building right now, fam'
 				sh "ls ./JenkinsDemoGitHub/HelloWorld"
 				sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
+				sh "ls ./JenkinsDemoGitHub/HelloWorld"
 			}
 		}
         stage('Destroy Old Server') {
