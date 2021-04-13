@@ -35,13 +35,8 @@ public class MainDriver {
 
     private static void insertInitialValues() {
 
-        shumanServ.addSHuman(new SuperHuman("Apple Jupiter", "Flesh Fruit", 0));
-        shumanServ.addSHuman(new SuperHuman("Pepper Jupiter", "Drowsy Fist", 0));
-        shumanServ.addSHuman(new SuperHuman("Ginger Jupiter", "Bioluminescent Moss", 180_000));
-        shumanServ.addSHuman(new SuperHuman("Danny Boy", "Electromagnetism", 250_000));
         shumanServ.addSHuman(new SuperHuman("Fairy Valentine", "Telekinetic Armor", 0));
         shumanServ.addSHuman(new SuperHuman("Pastor", "Holy Water", 0));
-        shumanServ.addSHuman(new SuperHuman("Quintin Tesa", "Finger Bullets", 160_000));
         shumanServ.addSHuman(new SuperHuman("Khro", "Time Dilation", 275_000));
         shumanServ.addSHuman(new SuperHuman("Mars", "Sandstorm", 750_000));
     }
