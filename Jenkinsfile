@@ -42,7 +42,7 @@ pipeline {
                 script {
                     try {
                         // kill any running instances
-                        sh 'kill $(lsof -t -i:$TRAINING_PORT)'
+                        sh 'kill $(lsof -t -i:9025)'
                     } catch (all) {
                         // if it fails that should mean a server wasn't already running
                         echo 'No server was already running'
