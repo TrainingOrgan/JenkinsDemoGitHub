@@ -33,9 +33,9 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
-				sh "pwd"
-				sh "ls"
-				sh './JenkinsDemoGitHub/gradlew build'
+				withGradle() {
+					sh './gradlew build'
+				}
 			}
 		}
         stage('Destroy Old Server') {
@@ -54,7 +54,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-                     sh 'nohup java -jar ./build/libs/JenkinsDemoProject-1.0-SNAPSHOT.jar &'
+                     sh 'nohup java -jar ./JenkinsDemoGitHub/build/libs/JenkinsDemoProject-1.0-SNAPSHOT.jar &'
                 }
             }
         }
