@@ -33,7 +33,7 @@ pipeline {
 				echo 'Building right now, fam'
 				sh "ls ./JenkinsDemoGitHub/HelloWorld"
 				withGradle(){
-					sh './JenkinsDemoGitHub/HelloWorld/gradlew clean build'
+					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 				}
 			}
 		}
