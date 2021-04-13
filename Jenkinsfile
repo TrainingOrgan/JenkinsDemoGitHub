@@ -19,14 +19,15 @@ pipeline {
         }
 		stage('Checkout') {
            steps {
-               git branch: 'master', credentialsId: '52aca62e-b649-4962-a874-db4182899ce8', url: 'https://github.com/tachester/JenkinsDemoGitHub.git'
+				sh "rm -r JenkinsDemoGitHub"
+				sh "git clone https://github.com/tachester/JenkinsDemoGitHub.git"
            }
         }
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
 				withGradle(){
-					sh './HelloWorld/gradlew build'
+					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 				}
 			}
 		}
@@ -46,7 +47,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-                     sh 'nohup java -jar ./HelloWorld/jarFolder/HelloWorld-1.0-SNAPSHOT.jar &'
+                     sh 'nohup java -jar ./JenkinsDemoGitHub/HelloWorld/jarFolder/HelloWorld-1.0-SNAPSHOT.jar &'
                 }
             }
         }
