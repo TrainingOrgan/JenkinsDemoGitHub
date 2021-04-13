@@ -27,14 +27,13 @@ pipeline {
 					}
 				}
 				sh "git clone https://github.com/tachester/JenkinsDemoGitHub.git"
+				sh "cd ./JenkinsDemoGitHub/HelloWorld"
            }
         }
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
-				sh "ls ./JenkinsDemoGitHub/HelloWorld"
-				sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
-				sh "ls ./JenkinsDemoGitHub/HelloWorld"
+				sh './gradlew build'
 			}
 		}
         stage('Destroy Old Server') {
@@ -54,6 +53,7 @@ pipeline {
             steps {
                 script {
                      sh 'nohup java -jar ./JenkinsDemoGitHub/HelloWorld/build/libs/HelloWorld-1.0-SNAPSHOT.jar &'
+					 sh 'cd ../..'
                 }
             }
         }
