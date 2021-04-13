@@ -2,7 +2,6 @@ pipeline {
 	agent any
 	
 	environment{
-        JENKINS_NODE_COOKIE = 'dontkillmeplease'
         TRAINING_PORT=9025
     }
 	
@@ -32,11 +31,9 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
-				sh "ls -a"
-				sh "ls ./JenkinsDemoGitHub"
 				sh "ls ./JenkinsDemoGitHub/HelloWorld"
 				withGradle(){
-					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
+					sh './JenkinsDemoGitHub/HelloWorld/gradlew clean build'
 				}
 			}
 		}
