@@ -21,7 +21,6 @@ pipeline {
            steps {
 				script{
 					try {
-						sh "pwd"
 						sh "rm -r JenkinsDemoGitHub"
 						echo 'Directory found, and deleted'
 					} catch (all) {
@@ -34,19 +33,13 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
-				sh "pwd"
-				sh "cd JenkinsDemoGitHub/HelloWorld"
-				
-				sh "pwd"
 				sh './gradlew build'
-				sh "pwd"
 			}
 		}
         stage('Destroy Old Server') {
             steps {
                 script {
                     try {
-						sh "pwd"
                         // kill any running instances
                         sh 'kill $(lsof -t -i:9025)'
                     } catch (all) {
@@ -59,10 +52,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-					
-					sh "pwd"
                      sh 'nohup java -jar ./build/libs/HelloWorld-1.0-SNAPSHOT.jar &'
-					 sh 'cd ../..'
                 }
             }
         }
