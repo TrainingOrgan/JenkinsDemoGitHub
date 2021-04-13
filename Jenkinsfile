@@ -19,10 +19,12 @@ pipeline {
         }
 		stage('Checkout') {
            steps {
-				try {
-					sh "rm -r JenkinsDemoGitHub"
-				} catch (all) {
-					echo 'No directory exists'
+				script{
+					try {
+						sh "rm -r JenkinsDemoGitHub"
+					} catch (all) {
+						echo 'No directory exists'
+					}
 				}
 				sh "git clone https://github.com/tachester/JenkinsDemoGitHub.git"
            }
