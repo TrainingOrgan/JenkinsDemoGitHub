@@ -33,9 +33,7 @@ pipeline {
 			steps{
 				echo 'Building right now, fam'
 				sh "ls ./JenkinsDemoGitHub/HelloWorld"
-				withGradle(){
-					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
-				}
+				sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 			}
 		}
         stage('Destroy Old Server') {
