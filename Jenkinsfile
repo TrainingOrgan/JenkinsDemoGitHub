@@ -33,6 +33,8 @@ pipeline {
 			steps{
 				echo 'Building right now, fam'
 				sh "ls -a"
+				sh "ls ./JenkinsDemoGitHub"
+				sh "ls ./JenkinsDemoGitHub/HelloWorld"
 				withGradle(){
 					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 				}
