@@ -10,9 +10,6 @@ public class SuperHumanDaoImpl implements SuperHumanDao {
 
     private static List<SuperHuman> mySHumans = new ArrayList<>();
 
-    static {
-        mySHumans.add(new SuperHuman("Khro", "Time Dilation", 250_000));
-    }
 
     @Override
     public void insert(SuperHuman shuman) {
