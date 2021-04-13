@@ -1,19 +1,49 @@
 plugins {
-    id 'java'
+    //we've changed from "java" to "application" because it adds some tasks that we want to use
+    id 'application'
 }
 
 group 'example'
 version '1.0-SNAPSHOT'
+sourceCompatibility=1.8
 
 repositories {
     mavenCentral()
 }
 
+
+mainClassName='example.MainDriver'
+
+jar {
+    manifest{
+        attributes(
+                "Main-Class": "$mainClassName"
+        )
+    }
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }}
+    destinationDir = file("$rootDir/jarFolder")
+}
+
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    //this dependencies is a server software
+    //Javalin wraps around a server software called "Jetty"
+    implementation 'io.javalin:javalin:3.13.4'
+
+    //this dependencies is a logging technology
+    implementation "org.slf4j:slf4j-simple:1.7.30"
+
+    // this dependency allows you to convert a java object to a JSON, and vice versa
+    //this is a JSON parser
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+
+    //there is also a XML parser called Jax-B
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 test {
     useJUnitPlatform()
 }
+
