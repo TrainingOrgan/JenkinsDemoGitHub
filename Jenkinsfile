@@ -32,6 +32,7 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
+				sh "ls -a"
 				withGradle(){
 					sh './JenkinsDemoGitHub/HelloWorld/gradlew build'
 				}
