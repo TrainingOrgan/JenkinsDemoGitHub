@@ -8,18 +8,26 @@ pipeline {
 	
 	stages {
 		stage ("Its morphin time!") {
-			echo 'sabertooth tiger!'
+			steps{
+				echo 'sabertooth tiger!'
+			}
 		}
 		stage('Clean') {
             steps {
               cleanWs()
             }
         }
+		stage('Checkout') {
+           steps {
+               git branch: 'master', credentialsId: '52aca62e-b649-4962-a874-db4182899ce8', url: 'https://github.com/tachester/JenkinsDemoGitHub.git'
+           }
+        }
         stage ("Build my project, mane") {
-			echo 'Building right now, fam'
-			cd HelloWorld
-			withGradle(){
-				sh './gradlew build'
+			steps{
+				echo 'Building right now, fam'
+				withGradle(){
+					sh './HelloWorld/gradlew build'
+				}
 			}
 		}
         stage('Destroy Old Server') {
@@ -37,9 +45,8 @@ pipeline {
         }
         stage('Start New Server!') {
             steps {
-				cd 
                 script {
-                     sh 'nohup java -jar HelloWorld-1.0-SNAPSHOT.jar &'
+                     sh 'nohup java -jar ./HelloWorld/jarFolder/HelloWorld-1.0-SNAPSHOT.jar &'
                 }
             }
         }
