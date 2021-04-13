@@ -42,7 +42,7 @@ public class MainDriver {
         shumanServ.addSHuman(new SuperHuman("Fairy Valentine", "Telekinetic Armor", 0));
         shumanServ.addSHuman(new SuperHuman("Pastor", "Holy Water", 0));
         shumanServ.addSHuman(new SuperHuman("Quintin Tesa", "Finger Bullets", 160_000));
-        shumanServ.addSHuman(new SuperHuman("Khro", "Time Dilation", 280_000));
+        shumanServ.addSHuman(new SuperHuman("Khro", "Time Dilation", 275_000));
         shumanServ.addSHuman(new SuperHuman("Mars", "Sandstorm", 750_000));
     }
 }
