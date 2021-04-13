@@ -52,7 +52,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-                     sh 'nohup java -jar ./build/libs/HelloWorld-1.0-SNAPSHOT.jar &'
+                     sh 'nohup java -jar ./build/libs/JenkinsDemoProject-1.0-SNAPSHOT.jar &'
                 }
             }
         }
