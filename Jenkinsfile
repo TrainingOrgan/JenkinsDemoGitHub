@@ -33,7 +33,7 @@ pipeline {
         stage ("Build my project, mane") {
 			steps{
 				echo 'Building right now, fam'
-					sh '.JenkinsDemoGitHub/gradlew build -p ./JenkinsDemoGitHub'
+					sh './JenkinsDemoGitHub/gradlew build -p ./JenkinsDemoGitHub'
 			}
 		}
         stage('Destroy Old Server') {
