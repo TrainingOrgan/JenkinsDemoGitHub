@@ -34,7 +34,8 @@ pipeline {
 			steps{
 				echo 'Building right now, fam'
 				sh "pwd"
-				sh './gradlew build'
+				sh "ls"
+				sh 'gradlew build'
 			}
 		}
         stage('Destroy Old Server') {
