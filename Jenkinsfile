@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	
 	environment{
+		JENKINS_NODE_COOKIE = 'dontkillmeplease'
         TRAINING_PORT=9025
     }
 	
