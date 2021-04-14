@@ -12,12 +12,12 @@ pipeline {
 				echo 'sabertooth tiger!'
 			}
 		}
-		stage('Clean') {
+		stage('Clean our the current workspace') {
             steps {
               cleanWs()
             }
         }
-		stage('Checkout') {
+		stage('Reclone our github repo') {
            steps {
 				script{
 					try {
@@ -27,7 +27,7 @@ pipeline {
 						echo 'No directory exists'
 					}
 				}
-				sh "git clone https://github.com/tachester/JenkinsDemoGitHub.git"
+				sh "git clone https://github.com/TrainingOrgan/JenkinsDemoGitHub.git"
            }
         }
         stage ("Build my project, mane") {
